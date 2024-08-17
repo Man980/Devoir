@@ -9,17 +9,18 @@ public class Final {
 
         // Définition de l'instantiation de la classe Scanner
         Scanner entree = new Scanner(System.in);
-        String warningss = "\n\nCeci est un programme conçu exclusivement par les étudiants : \n1. Micklove Lucisca MILORT\r\n" + //
-                        "2. Josias SAINT ANGE\r\n" + //
-                        "3. Jean Michel Ralph MANY\r\n" + //
-                        "4. Widmaier MORIL\r\nAucune partie de ce programmme ne doit etre copiee ou redistribuee sans la permission ecrite des developpeurs.\n\n";
+        String warningss = "\n\n*      Ceci est un programme conçu exclusivement par les étudiants :               *\n*      1. Micklove Lucisca MILORT                                                        *\r\n" + //
+                        "*      2. Josias SAINT ANGE                                                 *\r\n" + //
+                        "*      3. Jean Michel Ralph MANY                                                  *\r\n" + //
+                        "*      4. Widmaier MORIL\r\n*      Aucune partie de ce programmme ne doit etre copiee ou redistribuee\r\n*      sans la permission ecrite des developpeurs.                         __*****__\n";
 
             
             int choice_0 = -2;
 
             while (choice_0 == -2){
-                System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                System.out.println(warningss);
+                System.out.print("\n\n***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****");
+                System.out.print(warningss);
+                System.out.println("\n\n***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****");
                 System.out.print("Veuillez appuyer sur 0 pour quitter ou nimporte quel chiffre pour continuer >>> ");
                 int user_entry = getPositiveIntAdvance(entree);
                 if(user_entry ==0){
