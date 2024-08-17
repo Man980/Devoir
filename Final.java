@@ -9,47 +9,69 @@ public class Final {
 
         // Définition de l'instantiation de la classe Scanner
         Scanner entree = new Scanner(System.in);
+        String warningss = "\n\nCeci est un programme conçu exclusivement par les étudiants : \n1. Micklove Lucisca MILORT\r\n" + //
+                        "2. Josias SAINT ANGE\r\n" + //
+                        "3. Jean Michel Ralph MANY\r\n" + //
+                        "4. Widmaier MORIL\r\nAucune partie de ce programmme ne doit etre copiee ou redistribuee sans la permission ecrite des developpeurs.\n\n";
 
-        int choice = -1;
-        while (choice != 5) {
-            System.out.println("******************************** BIENVENUE ********************************");
-            System.out.println("1. Multiplication de deux matrices");
-            System.out.println("2. Tri de tableau Méthode Alpha");
-            System.out.println("3. Tri de tableau Méthode Beta");
-            System.out.println("4. Résolution d’un système d’équations linéaires à 3 inconnues");
-            System.out.println("5. Quitter");
-            System.out.print("Veuillez faire un choix : ");
+            
+            int choice_0 = -2;
 
-            if (entree.hasNextInt()) {
-                choice = entree.nextInt();
-
-                // Appeler les différentes fonctions en fonction du choix de l'utilisateur
-                switch (choice) {
-                    case 1:
-                        runMatrixMultiplication(entree);
-                        break;
-                    case 2:
-                    case 3:
-                        runSortingExample(entree, choice);
-                        break;
-                    case 4:
-                        runGaussElimination(entree);
-                        break;
-                    case 5:
-                        System.out.println("Au revoir!");
-                        break;
-                    default:
-                        System.out.println("Mauvais choix ! Veuillez essayer à nouveau.");
-                        break;
+            while (choice_0 == -2){
+                System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                System.out.println(warningss);
+                System.out.print("Veuillez appuyer sur 0 pour quitter ou nimporte quel chiffre pour continuer >>> ");
+                int user_entry = getPositiveIntAdvance(entree);
+                if(user_entry ==0){
+                    break;
                 }
-            } else {
-                System.out.println("Entrée invalide. Veuillez entrer un nombre.");
-                entree.next(); // Pour consommer l'entrée non entière
-            }
-        }
+                else if(user_entry!=-1){
+                    //else{
+                        // Code to execute...
+                    int choice = -1;
+                    while (choice != 5) {
+                        System.out.println("\n\n******************************** WELCOME TO EASY CALCULUS ********************************\n");
+                     System.out.println("*  ");  System.out.println("1. Multiplication de deux matrices");
+                     System.out.println("*  ");  System.out.println("2. Tri de tableau");
+                     //System.out.println("*  ");  System.out.println("3. Tri de tableau Méthode Beta");
+                     System.out.println("*  ");   System.out.println("4. Résolution d'un système d'équations linéaires à 3 inconnues");
+                     System.out.println("*  "); System.out.println("5. Quitter");
+                     System.out.println("*  ");  System.out.print("Veuillez faire un choix : ");
+
+                    if (entree.hasNextInt()) {
+                        choice = entree.nextInt();
+
+                        // Appeler les différentes fonctions en fonction du choix de l'utilisateur
+                        switch (choice) {
+                            case 1:
+                                runMatrixMultiplication(entree);
+                                break;
+                            case 2:
+                            case 3:
+                                runSortingExample(entree, choice);
+                                break;
+                            case 4:
+                                runGaussElimination(entree);
+                                break;
+                            case 5:
+                                System.out.println("Au revoir!");
+                                break;
+                            default:
+                                System.out.println("Mauvais choix ! Veuillez essayer à nouveau.");
+                                break;
+                        } 
+                    } else {
+                        System.out.println("Entrée invalide. Veuillez entrer un nombre.");
+                        entree.next(); // Pour consommer l'entrée non entière
+                    }
+                }
 
         entree.close();
     }
+
+    }
+    }
+    
 
     // Exemple de fonction pour exécuter le tri
     public static void runSortingExample(Scanner entree, int choice) {
@@ -181,7 +203,7 @@ public class Final {
         printMatrix(a);
 
         // Résolution par substitution arrière
-        double[] x = new double[n];
+        double[] x = new double[n]; // pour sauvegarder les solutions du systeme
         for (int i = n - 1; i >= 0; i--) {
             x[i] = a[i][n] / a[i][i];
             for (int j = i - 1; j >= 0; j--) {
@@ -191,7 +213,7 @@ public class Final {
 
         // Affichage du résultat
         System.out.println("Solution :");
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) { 
             System.out.printf("x%d = %.2f\n", i + 1, x[i]);
         }
     }
@@ -204,6 +226,24 @@ public class Final {
                 System.out.println("Veuillez entrer un entier positif.");
                 num = -1;
             }
+        } else {
+            System.out.println("Entrée invalide. Veuillez entrer un nombre.");
+            entree.next(); // Pour consommer l'entrée non entière
+        }
+        return num;
+    }
+
+    public static int getPositiveIntAdvance(Scanner entree) {
+        int num = -1;
+        if (entree.hasNextInt()) {
+            num = entree.nextInt();
+            if (num < 0) {
+                System.out.println("Veuillez entrer un entier positif.");
+                num = -1;
+            }
+        else if(num==0){
+            num=0;
+        }
         } else {
             System.out.println("Entrée invalide. Veuillez entrer un nombre.");
             entree.next(); // Pour consommer l'entrée non entière
@@ -257,7 +297,7 @@ public class Final {
 
     public static void printArray(int[] arr) {
         for (int i : arr) {
-            System.out.print(i + " ");
+            System.out.print(i +" ");
         }
         System.out.println();
     }
